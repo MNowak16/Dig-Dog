@@ -38,14 +38,12 @@ function createYard(event) {
 function playGame(event) {
     event.preventDefault();
 
-   // $(event.target).addClass("dug").removeClass("undug");
-
     if ( $(event.target).attr("id", "hasBone") ) {
-        $(event.target).addClass("dug-bone").removeClass("undug");
+        $(event.target).removeClass("undug").addClass("dug-bone");
         //totalBones --;
         //$("p#status").text(`Bones Remaining: ${totalBones}`);
 
     } else {
-        $(event.target).addClass("dug").removeClass("undug");
+        $(event.target).removeClass("undug").addClass("dug");
     }
 }
