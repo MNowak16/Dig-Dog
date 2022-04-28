@@ -5,7 +5,7 @@ td {
 }
 
 /* Dark green for undug lawn squares */
-td.undug {
+td.undug_hasBone, td.undug_noBone {
     background-color: darkolivegreen;
 }
 

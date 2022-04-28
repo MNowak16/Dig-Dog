@@ -17,13 +17,13 @@ function createYard(event) {
             //there is a 30% chance that it will also be given the class hidden-bone
             let boneHidden = Math.random();
 
-            //count the number of bones places
-            // and change the <td> class to verify which ones have a bone
+            //count the number of bones placed
+            //change the <td> id to verify which ones have a bone
             if (boneHidden <= 0.30) {
                 totalBones++;
-                row.append(`<td id="hasBone" class="undug"></td>`);
+                row.append(`<td class="undug_hasBone"></td>`);
             } else {
-                row.append(`<td id="noBone" class="undug"></td>`);
+                row.append(`<td class="undug_noBone"></td>`);
             }
         }
     }
@@ -32,15 +32,15 @@ function createYard(event) {
     return totalBones;
 }
 
-function playGame(event) {
+function playGame(event, totalBones) {
     event.preventDefault();
 
-    if ( $(event.target).prop("hasBone") ) {
-        $(event.target).removeClass("undug").addClass("dug-bone");
-        //totalBones --;
-        //$("p#status").text(`Bones Remaining: ${totalBones}`);
+    if ( $(event.target).hasClass("undug_hasBone") ) {
+        $(event.target).removeClass("undug_hasBone").addClass("dug-bone");
+        totalBones--;
+        $("p#status").text(`Bones Remaining: ${totalBones}`);
 
     } else {
-        $(event.target).removeClass("undug").addClass("dug");
+        $(event.target).removeClass("undug_noBone").addClass("dug");
     }
 }
