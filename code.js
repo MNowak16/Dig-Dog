@@ -14,11 +14,6 @@ function createYard(event) {
     for (let tr = 1; tr <= yardSize; tr++) {
         let row = table.append("<tr>");
         for (let td = 1; td <= yardSize; td++) {
-            row.append(`<td></td>`);
-
-            //every cell is given class "undug"
-            $("td").addClass("undug").attr("id", "noBone");
-
             //there is a 30% chance that it will also be given the class hidden-bone
             let boneHidden = Math.random();
 
@@ -26,7 +21,9 @@ function createYard(event) {
             // and change the <td> class to verify which ones have a bone
             if (boneHidden <= 0.30) {
                 totalBones++;
-                $(event.target).attr("id", "hasBone");
+                row.append(`<td id="hasBone" class="undug"></td>`);
+            } else {
+                row.append(`<td id="noBone" class="undug"></td>`);
             }
         }
     }
@@ -38,7 +35,7 @@ function createYard(event) {
 function playGame(event) {
     event.preventDefault();
 
-    if ( $(event.target).attr("id", "hasBone") ) {
+    if ( $(event.target).prop("hasBone") ) {
         $(event.target).removeClass("undug").addClass("dug-bone");
         //totalBones --;
         //$("p#status").text(`Bones Remaining: ${totalBones}`);
