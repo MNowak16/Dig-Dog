@@ -1,0 +1,23 @@
+/* Set the dimensions of all table cells */
+td {
+    width: 125px;
+    height: 125px;
+}
+
+/* Dark green for undug lawn squares */
+td.undug {
+    background-color: darkolivegreen;
+}
+
+/* Brown for dug lawn squares */
+td.dug {
+    background-color: saddlebrown;
+}
+
+/* Brown with image background for lawn squares with bones */
+td.dug-bone {
+    background-color: saddlebrown;
+    background-image: url("bone.png");
+    background-position: center;
+    background-repeat: no-repeat;
+}
