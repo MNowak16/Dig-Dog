@@ -1,6 +1,8 @@
 $("form").on("submit", createYard);
 $("table").on("click", "td", playGame);
 
+let totalBones = 0;
+
 function createYard(event) {
     event.preventDefault();
 
@@ -9,7 +11,6 @@ function createYard(event) {
 
     //create yard with x rows and x columns of cells
     let table = $("table#digYard");
-    let totalBones = 0;
 
     for (let tr = 1; tr <= yardSize; tr++) {
         let row = table.append("<tr>");
@@ -32,15 +33,15 @@ function createYard(event) {
     return totalBones;
 }
 
-function playGame(event, totalBones) {
+function playGame(event) {
     event.preventDefault();
 
     if ( $(event.target).hasClass("undug_hasBone") ) {
         $(event.target).removeClass("undug_hasBone").addClass("dug-bone");
         totalBones--;
-        $("p#status").text(`Bones Remaining: ${totalBones}`);
-
     } else {
         $(event.target).removeClass("undug_noBone").addClass("dug");
     }
+    $("p#status").text(`Bones Remaining: ${totalBones}`);
+    return totalBones;
 }
