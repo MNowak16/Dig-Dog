@@ -5,6 +5,7 @@ let totalBones = 0;
 
 function createYard(event) {
     event.preventDefault();
+    clearPrevious();
 
     //get size of yard from input
     let yardSize = Number( $("input#yard").val() );
@@ -31,6 +32,12 @@ function createYard(event) {
     //display the total number of bones to be found
     $("p#status").text(`Bones Remaining: ${totalBones}`);
     return totalBones;
+}
+
+function clearPrevious() {
+    //clear previous yard if exists
+    $("table#digYard").empty();
+    totalBones = 0;
 }
 
 function playGame(event) {
