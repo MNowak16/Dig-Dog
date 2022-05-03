@@ -43,17 +43,19 @@ function clearPrevious() {
 function playGame(event) {
     event.preventDefault();
 
-    if ( $(event.target).hasClass("undug_hasBone") ) {
-        $(event.target).removeClass("undug_hasBone").addClass("dug-bone");
-        totalBones--;
-        if (totalBones >= 1) {
-            $("p#status").text(`Bones Remaining: ${totalBones}`);
+    while (totalBones > 0) {
+        if ( $(event.target).hasClass("undug_hasBone") ) {
+            $(event.target).removeClass("undug_hasBone").addClass("dug-bone");
+            totalBones--;
+            if (totalBones >= 1) {
+                $("p#status").text(`Bones Remaining: ${totalBones}`);
+            } else {
+                $("p#status").text(`Congratulations! You have found all of the bones!`);
+            }
         } else {
-            $("p#status").text(`Congratulations! You have found all of the bones!`);
+            $(event.target).removeClass("undug_noBone").addClass("dug");
+            $("p#status").text(`Bones Remaining: ${totalBones}`);
         }
-    } else {
-        $(event.target).removeClass("undug_noBone").addClass("dug");
-        $("p#status").text(`Bones Remaining: ${totalBones}`);
+        return totalBones;
     }
-    return totalBones;
 }
