@@ -1,3 +1,25 @@
+/*https://media.istockphoto.com/photos/stadium-grass-picture-id612852170?k=6&m=612852170&s=170667a&w=0&h=g-36Kmq5GfHOZUnPEyEfdrBKcOei9uwEkXxWmkld2w8=/*/
+body {
+    background: lawngreen;
+    padding: 2em 10em 2em 10em;
+}
+
+#game { background: #FFFFFF;
+    padding: 1em;
+    overflow: auto;
+    text-align: center;
+}
+
+h1 {
+    font-family: ChrustyRock-ORLA, sans-serif;
+    font-size: xxx-large;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Set the dimensions of all table cells */
 td {
     width: 125px;
@@ -21,3 +43,7 @@ td.dug-bone {
     background-position: center;
     background-repeat: no-repeat;
 }
+
+/*https://www.fontspace.com/chrusty-rock-font-f35152*/
+@font-face { font-family: 'ChrustyRock-ORLA';
+    src: url("ChrustyRock-ORLA.ttf"); }

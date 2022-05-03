@@ -6,15 +6,18 @@
     <link rel="stylesheet" href="digdog.css">
 </head>
 <body>
-    <form>
-        <label for="yard">Yard Size: </label>
-        <input id="yard" type="number" min="3" max="7" step="1" required>
-        <button id="start">Start Game</button>
-    </form>
+    <div id="game">
+        <h1>Dig Dog</h1>
+        <form>
+            <label for="yard">Yard Size: </label>
+            <input id="yard" type="number" min="3" max="7" step="1" required>
+            <button id="start">Start Game</button>
+        </form>
 
-    <p id="status"></p>
+        <p id="status"></p>
 
-    <table id="digYard"></table>
+        <table id="digYard"></table>
+    </div>
 
     <script defer src="https://code.jquery.com/jquery-3.6.0.js"
             integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
