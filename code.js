@@ -39,9 +39,14 @@ function playGame(event) {
     if ( $(event.target).hasClass("undug_hasBone") ) {
         $(event.target).removeClass("undug_hasBone").addClass("dug-bone");
         totalBones--;
+        if (totalBones >= 1) {
+            $("p#status").text(`Bones Remaining: ${totalBones}`);
+        } else {
+            $("p#status").text(`Congratulations! You have found all of the bones!`);
+        }
     } else {
         $(event.target).removeClass("undug_noBone").addClass("dug");
+        $("p#status").text(`Bones Remaining: ${totalBones}`);
     }
-    $("p#status").text(`Bones Remaining: ${totalBones}`);
     return totalBones;
 }
